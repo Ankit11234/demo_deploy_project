@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import { useEffect } from 'react'
 import Task from './Task.js'
+import { BASE_URL } from './Url'
 
 const Tasks = () => {
 
@@ -9,7 +10,7 @@ const Tasks = () => {
   // const [tasks,settasks]= useState();
 
   const sendRequest = async()=>{
-    const res = await axios.get("http://localhost:8000/api/task").catch(err=>console.log(err));
+    const res = await axios.get(`${BASE_URL}api/task`).catch(err=>console.log(err));
     const data = await res.data;
     console.log("data is",data)
     return data;
@@ -20,7 +21,7 @@ const Tasks = () => {
 
   },[])
 
-  console.log(tasks);
+  // console.log(tasks);
   
   return (
     <div>

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Card from '@mui/material/Card';
+import { BASE_URL } from './Url';
 import CardHeader from '@mui/material/CardHeader';
 import CardContent from '@mui/material/CardContent';
 import Avatar from '@mui/material/Avatar';
@@ -23,7 +24,7 @@ const Task=({title,description,userName,isUser,id})=>{
  }
 
  const del=async()=>{
-  const res = await axios.delete(`http://localhost:8000/api/task/${id}`).catch((err)=>console.log(err));
+  const res = await axios.delete(`${BASE_URL}api/task/${id}`).catch((err)=>console.log(err));
   const data = await res.data;
   return data;
  }

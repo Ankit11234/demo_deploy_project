@@ -1,5 +1,6 @@
 import { Button, InputLabel, TextField, Typography } from '@mui/material'
 import { Box } from '@mui/system'
+import { BASE_URL } from './Url'
 import React, { useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
@@ -23,7 +24,7 @@ const AddTask = () => {
   }
 
   const sendRequest=async()=>{
-    const res = await axios.post('http://localhost:8000/api/task/add',{
+    const res = await axios.post(`${BASE_URL}api/task/add`,{
       title: inputs.title,
       description: inputs.description,
       user: localStorage.getItem("userId")
@@ -36,7 +37,7 @@ const AddTask = () => {
   const handlesubmit=(e)=>{
     e.preventDefault();
     console.log(inputs);
-    sendRequest().then(()=>navigate('/tasks'))
+    sendRequest().then(()=>navigate('/mytasks'))
 
   }
   return (

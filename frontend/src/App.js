@@ -3,13 +3,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import Addtask from './Components/AddTask';
 import Auth from './Components/Auth';
-import taskDetail from './Components/TaskDetail';
-import tasks from './Components/Tasks';
+import TaskDetail from './Components/TaskDetail';
 import Header from './Components/Header';
-import Usertasks from './Components/UserTasks';
+import UserTasks from './Components/UserTasks';
 import { authActions } from './Store';
 import Tasks from './Components/Tasks';
-import TaskDetail from './Components/TaskDetail';
+
 
 function App() {
   const dispatch = useDispatch();
@@ -31,7 +30,7 @@ function App() {
       {!state ?<Route path='/auth' element={<Auth/>}/>:
         <>
           <Route path='/tasks' element={<Tasks/>}/>
-          <Route path='/mytasks' element={<Usertasks/>}/>
+          <Route path='/mytasks' element={<UserTasks/>}/>
           <Route path='/mytasks/:id' element={<TaskDetail/>}/>
           <Route path='/tasks/add' element={<Addtask/>}/> 
         </>

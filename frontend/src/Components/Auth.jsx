@@ -2,6 +2,7 @@ import { Button, TextField, Typography } from '@mui/material'
 import { Box } from '@mui/system'
 import React, { useState } from 'react'
 import axios from 'axios';
+import { BASE_URL } from './Url'
 import {useDispatch} from "react-redux";
 import {useNavigate} from "react-router-dom";
 import { authActions } from "../Store/index";
@@ -29,7 +30,7 @@ const Auth = () => {
 
    
     // console.log("res is ",res);
-    const res = await axios.post(`http://localhost:8000/api/user/${type}`,{
+    const res = await axios.post(`${BASE_URL}api/user/${type}`,{
       name: type==="login" ?"":inputs.name,
       email: inputs.email,
       password: inputs.password

@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import Task from './Task';
+import { BASE_URL } from './Url'
 
 const Usertasks = () => {
   const id = localStorage.getItem("userId");
@@ -8,9 +9,10 @@ const Usertasks = () => {
   const [user,setUser]=useState();
 
   const sendRequest = async()=>{
-    const res = await axios.get(`http://localhost:8000/api/task/user/${id}`).catch((err)=>console.log(err));
+    const res = await axios.get(`${BASE_URL}api/task/user/${id}`).catch((err)=>console.log(err));
     const data = await res.data;
-    // console.log("data is",data);
+    // const data = await res.json;
+    console.log("data is",data);
     return data;
   }
   useEffect(() => {
